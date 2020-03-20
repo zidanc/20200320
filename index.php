@@ -2,7 +2,9 @@
 
 echo "hello world";
 
-
+$AA;
+$BB;
+$CC;
 
 ?>
 

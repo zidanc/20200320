@@ -13,7 +13,12 @@ for($i=0;$i<floor(count($a))/2;$i++){
   $a[count($a)-1-$i]=$tmp;
 }
   /*然後老師將count($a)-1-$i指定成一個變數$index，把$index帶回去上式
-  重新整理而得。*/
+  重新整理而得 Line 19之後。*/
   echo "<pre>";print_r($a);echo "</pre>";
 
+  $index=count($a)-1-$i;
+  $tmp=$a[$i];
+  $a[$i]=$a[$index];
+  $a[$index]=$tmp;
+  
 ?>

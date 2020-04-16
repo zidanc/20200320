@@ -38,6 +38,36 @@ echo "$days";
 
 <h4>date()函式</h4>
 <?php
-echo date("Y-m-d H:i:s")
+echo date("Y-m-d H:i:s");
+
+?>
+
+<h4>strtotime()函式</h4>
+<?php
+// echo date("Y-m-d H:i:s");
+// $today變數上面已經命令過了
+$date=strtotime("+3 days" . $today);
+echo date("Y-m-d", $date);
+
+echo "<hr>";
+echo date("Y-m-d",strtotime("-2 month", strtotime("2020-07-02")));
+echo "<br>";
+echo date("Y-m-d",strtotime("-2 month , 2020-07-02"));
+
+?>
+
+<h4>迴圈+時間練習</h4>
+<div>印出今天起的三十天日期</div>
+<?php
+$today=date("Y-m-d");
+/* 我的自行練習思考
+$between=strtotime("+1 day, 2020-04-16");
+$between2=strtotime("+2 day, 2020-04-16");*/
+
+for ($i=1; $i<=30 ; $i++) {
+  echo date("Y-m-d", strtotime("+$i day" . $today))."<br>";
+   
+}
+
 
 ?>

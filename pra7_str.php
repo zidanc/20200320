@@ -2,7 +2,7 @@
 
 <?php
 $str="好的，中國武漢肺炎";
-$str2=mb_substr($str, 5, 9,"UTF-8");
+$str2=mb_substr($str, 5, 4,"UTF-8");
 echo "<br>";
 
 echo $str2;

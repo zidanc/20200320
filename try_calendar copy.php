@@ -1,37 +1,44 @@
 <style>
-  table.all{
+  div.container{
+    width: 1500px;
+    height: 1200px;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: space-between;
+    
   }
-  table.Sub{
+  
+  table{
     border: 1px solid black;
     text-align: center;
     border-collapse: collapse;  
   }
-  table.Sub td{
+  table td{
     border: 1px solid #888;
     /* border-collapse: collapse; 沒有效果？*/
     padding: 15px;
   }
-  /* tr:nth-child(1){
+  tr:nth-child(1){
     background: #DDD;
-  } */
+  }
 
 </style>
 
 <div>年份:2020</div>
 
+<div class="container">
 <?php
 $year="2020";
 for($m=1;$m<=12;$m++){
-?>
+  ?>
 
-<div>月份:<?=$m;?></div>
 
-<div class="all">
-
-<table class="Sub">
+<table>
+  <tr>
+    <td colspan="7">月份:<?=$m;?>
+    </td>
+  </tr>
   <tr>
     <td>日</td>
     <td>一</td>
@@ -64,9 +71,9 @@ for($m=1;$m<=12;$m++){
 
 $firstDay="$year-$m-01";
 $firstDayWeek=date("w",strtotime($firstDay));
-echo "第一天星期:" . $firstDayWeek . "<br>";
+// echo "第一天星期:" . $firstDayWeek . "<br>";
 $monthDays=date("t",strtotime($firstDay));
-echo "月天數:" . $monthDays . "天";
+// echo "月天數:" . $monthDays . "天";
 
 // echo "<table>";
 for($i=0;$i<=4;$i++){
@@ -90,11 +97,9 @@ for($i=0;$i<=4;$i++){
 
 ?>
 </table>
-</td>
 
-</tr>
-</table>
 
 <?php
 }
 ?>
+</div>

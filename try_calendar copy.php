@@ -20,6 +20,11 @@
     padding: 15px;
   }
   tr:nth-child(1){
+    background: black;
+    color: white;
+    font-size: 1rem;
+  }
+  tr:nth-child(2){
     background: #DDD;
   }
 

@@ -24,12 +24,23 @@
   }
 
 </style>
+<div>
+  <input type="number" name="" id="">
+  <input type="submit" value="產生年曆">
+</div>
 
-<div>年份:2020</div>
+
+<!-- <div>年份:2020</div> -->
+
+<?php
+if(isset($_GET["year"])){
+  $year=$_GET["year"];
+}else{
+  $year=date("Y");
+}
+echo "<h4 style='text-align:center'>西元". $year . "年曆</h4>";
 
 <div class="container">
-<?php
-$year="2020";
 for($m=1;$m<=12;$m++){
   ?>
 

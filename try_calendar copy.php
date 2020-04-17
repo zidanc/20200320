@@ -27,22 +27,42 @@
   tr:nth-child(2){
     background: #DDD;
   }
-
+  a{
+    text-decoration: none;
+  }
+  a:link{
+    color: white;
+  }
+  a:hover{
+    color: lightskyblue;
+  }
+  a:visited{
+    color: white;
+  }
 </style>
 
-<div>年份:2020</div>
 
 <div class="container">
-<?php
-$year="2020";
-for($m=1;$m<=12;$m++){
-  ?>
+  
+  <?php
+// $year="2020";
+// for($m=1;$m<=12;$m++){
+  $year=date("Y");
+  $month=date("m");
+  // ""=$month-1;
 
+  if(isset($_GET["mon"])){
+    $month=$_GET["mon"];
+  }
+  
+  echo "年份: " . $year;
+  ?>
 
 <table>
   <tr>
-    <td colspan="7">月份:<?=$m;?>
-    </td>
+    <td> <a href='try_calendar%20copy.php?mon=<?=$month-1?>&year=<?=$year-1?>'> << </a></td>
+    <td colspan="5">月份:<?=$month;?></td>
+    <td> <a href='try_calendar%20copy.php?mon=<?=$month+1?>&year=<?=$year+1?>'> >> </a></td>
   </tr>
   <tr>
     <td>日</td>
@@ -74,7 +94,7 @@ for($m=1;$m<=12;$m++){
 // }
 // echo "</table>";
 
-$firstDay="$year-$m-01";
+$firstDay="$year-$month-01";
 $firstDayWeek=date("w",strtotime($firstDay));
 // echo "第一天星期:" . $firstDayWeek . "<br>";
 $monthDays=date("t",strtotime($firstDay));
@@ -104,7 +124,7 @@ for($i=0;$i<=4;$i++){
 </table>
 
 
-<?php
-}
-?>
+<!-- <?php
+// }
+?> -->
 </div>

@@ -91,12 +91,53 @@ echo "<hr>";
 echo "中空矩形作法二";
 echo "<br>";
 for($i=1;$i<=7;$i++){
+
   if ($i==1 || $i==7) {
-    echo "*";
-  }else if($k){
+  
+    for ($j=1; $j <=7 ; $j++) { 
+      echo "*";
+    }
     
+  }else{
+  
+    for ($k=1;$k<=7;$k++) {
+  
+      if ($k==1 || $k==7) { 
+        echo "*";
+      }else{
+        echo "&nbsp;";
+      }
+    }   
   }
+  echo "<br>";
 }
+echo '錯誤，因為變數重複導致$i先執行到2，然後=>1=>7就結束，無法完整執行';
+echo "<br>";
+for($i=1;$i<=7;$i++){
+
+  if ($i==1 || $i==7) {
+  
+    for ($j=1; $j <=7 ; $j++) { 
+      echo "*";
+    }
+    
+  }else{
+  
+    for ($i=1;$i<=7;$i++) {
+  
+      if ($i==1 || $i==7) { 
+        echo "*";
+      }else{
+        echo "&nbsp;";
+      }
+    }   
+  }
+  echo "<br>";
+}
+
+echo "<hr>";
+
+  
 
 
 ?>

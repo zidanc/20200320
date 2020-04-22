@@ -19,8 +19,46 @@ for ($i=0;$i<count($a);$i++){
     echo "<br>";
   }
 }
+echo "<hr>";
 
-foreach($a)
+foreach($a as $key=>$d){
+  echo $d . " , ";
+  if ($key%9 == 8){
+    echo "<br>";
+  }
+}
+echo "<hr>";
+echo  "practice2nd";
+echo "<br>";
+// 方法一：
+// $a=[];
+// for($i=1;$i<=9;$i++){
+//   for ($j=1; $j <=9 ; $j++) { 
+//     $a[]= $i . " x " . $j . "=" .($i*$j);
+//   }
+// }
+
+// for($k=0;$k<count($a);$k++){
+//   echo $a[$k] . " , ";
+//   if ($k%9 == 8){
+//     echo "<br>";
+//   }
+// }
+
+// 方法二：
+$a=[];
+for ($i=1;$i<=9;$i++){
+  for($j=1;$j<=9;$j++){
+    $a[]= $i . "x" . $j . "=" . ($i*$j);
+  }
+}
+
+foreach ($a as $key => $d) {
+  echo $d . " , ";
+  if($key%9 == 8){
+    echo "<br>";
+  }
+}
 
 
 ?>

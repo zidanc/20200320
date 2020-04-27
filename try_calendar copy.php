@@ -55,14 +55,28 @@
     $month=$_GET["mon"];
   }
   
+  if(isset($_GET["year"])){
+    $year=$_GET["year"];
+  }
+
+  if($month>12){
+    $year++; /*只寫$year++即可*/
+    $month=1;
+  }
+
+  if($month<1){
+    $year--;
+    $month=12;
+  }
+  
   echo "年份: " . $year;
   ?>
 
 <table>
   <tr>
-    <td> <a href='try_calendar%20copy.php?mon=<?=$month-1?>&year=<?=$year-1?>'> << </a></td>
+    <td> <a href='try_calendar%20copy.php?mon=<?=$month-1?>&year=<?=$year?>'> << </a></td>
     <td colspan="5">月份:<?=$month;?></td>
-    <td> <a href='try_calendar%20copy.php?mon=<?=$month+1?>&year=<?=$year+1?>'> >> </a></td>
+    <td> <a href='try_calendar%20copy.php?mon=<?=$month+1?>&year=<?=$year?>'> >> </a></td>
   </tr>
   <tr>
     <td>日</td>

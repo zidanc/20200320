@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    table{
-      /* border-collapse: collapse; */
+    fieldset{
+      width: 300px;
+    }
+    div.button{
+      margin-left:105px;
     }
     td{
       width: 100px;
@@ -52,11 +55,11 @@
       </table>
       
       
-      <div>
+      <div class="button">
         <input type="submit" value="送出">
         <input type="reset" value="重置">
       </div>
-
+  </fieldset>
 </body>
 </html>
 
@@ -66,8 +69,6 @@
 $dsn="mysql:host=localhost;charset=utf8;dbname=school";
 $pdo=new PDO($dsn,"root","");
 date_default_timezone_set("Asia/Taipei");
-
-$pdo
 
 
 ?>

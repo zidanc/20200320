@@ -28,14 +28,14 @@
     $pdo=new PDO($dsn,"root","");
     date_default_timezone_set("Asia/Taipei");
 
-    $id=$_GET['user'];
+    $id=$_GET['id'];
     $sql="select * from `students` where `id`='$id'";
     $user=$pdo->query($sql)->fetch();
 
   ?>
   <fieldset>
     <legend>編輯會員</legend>
-      <form method="POST" enctype="multipart/form-data" action="add_user.php">
+      <form method="POST" enctype="multipart/form-data" action="update_user.php">
       <table>
         <tr>
           <td>帳號：</td>

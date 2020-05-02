@@ -49,3 +49,27 @@ for($i=0;$i<floor(count($b)/2);$i++){
 }
 
 ?>
+
+<hr>
+<h4>array_pop, array_shift, array_push, array_unshift</h4>
+<?php
+$c=[2,4,6,1,8];
+$str=array_pop($c);           //取走陣列中最後一個值，若對不是陣列或空陣列做array_pop，會得到一個null值。
+echo "<pre>";print_r($c);"</pre>";
+echo $str."<br>";
+$str_h=array_shift($c);       //取走陣列中第一個值。
+echo "<pre>";print_r($c);"</pre>";
+echo $str_h."<br>";
+
+array_push($c,$str_h);        //透過插入到陣列最後方，擴大陣列元素總數。
+echo "<pre>";print_r($c);"</pre>";
+array_unshift($c,$str);       //透過插入到陣列最前方，擴大陣列元素總數。
+echo "<pre>";print_r($c);"</pre>";
+
+
+
+
+
+
+?>
+

@@ -31,3 +31,27 @@ echo "<pre>";print_r($str3);"</pre>";
 
 echo $str2[3];
 ?>
+
+<h3>陣列重新組合，使用join函數組合陣列元素</h3>
+<div>this,is,a,book陣列重新組合成this is a book</div>
+
+<?php
+//方法一：用str_replace函數
+$str="this,is,a,book";
+echo str_replace(","," ",$str);
+echo "<hr>";
+//方法二：
+$str="this,is,a,book";
+$strArray=explode(",",$str);
+echo join(" ",$strArray);
+?>
+
+<h3>取字串片段：下列字串只取前十字，變成"The reason..."</h3>
+<div>The reason why a great man is great is that he resolves to be a great man.</div>
+
+<?php
+$str="The reason why a great man is great is that he resolves to be a great man.";
+echo substr($str,0,10)."...";
+
+
+?>

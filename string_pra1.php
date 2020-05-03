@@ -17,3 +17,17 @@ $str3=str_repeat("*",strlen($str));
 echo $str3;
 
 ?>
+
+<h4>字串切割</h4>
+<div>this,is,a,book</div>
+
+<?php
+$str="this,is,a,book";
+$str2=explode(",",$str);
+$str3=explode(",",$str,3);
+
+echo "<pre>";print_r($str2);"</pre>";
+echo "<pre>";print_r($str3);"</pre>";
+
+echo $str2[3];
+?>

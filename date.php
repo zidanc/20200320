@@ -48,5 +48,20 @@ echo strtotime("now")."<br>";
 $date=strtotime("+3 days");
 echo date("Y-m-d",$date);        
 
+// $date=strtotime("+3 days".$today)      用 . 隔開計算的基準變數/函數(第二參數)。
+
+// date("Y-m-d",strtotime("-7 days 2020-10-07"));  用 空格 隔開絕對日期(第二參數)。
+
+?>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h4>日期練習</h4>
+<div>印出今天起的三十天日期</div>
+<?php
+$today=date("Y-m-d");
+echo date("Y-m-d",strtotime("+1 day".$today))."<br>";
 
 ?>

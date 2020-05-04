@@ -26,7 +26,7 @@ if(!empty($_POST['acc'])){
   // }
 
   // 更正確方法三
-  if($user>0){
+  if($user==1){
     echo "登入成功";    //因為下方還有一行導向頁面指令，所以"登入成功"一瞬間就過去了，幾乎看不到。
     header("location:list_user.php");
   }else{

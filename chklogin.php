@@ -1,16 +1,17 @@
 <?php
-$dsn="mysql:host=localhost;charset=utf8;dbname=school";
-$pdo=new PDO($dsn,"root","");
-date_default_timezone_set("Asia/Taipei");
+include "dbconnect.php";
+// include("dbconnect.php");   功能同上，此可以放在程式內使用。
 
 if(!empty($_POST['acc'])){
   echo "有送出資料";
   $acc=$_POST['acc'];
   $pw=$_POST['pw'];
-  $sql="select * from `students` where `acc`='$acc' && `pw`='$pw'";
-  $user=$pdo->query($sql)->fetch();
+  $sql="select count(*) from `students` where `acc`='$acc' && `pw`='$pw'";
+  $user=$pdo->query($sql)->fetchColumn();
   echo $sql."<br>";
-  print_r($user);
+  
+  // print_r($user);
+
   // 方法一
   // if($acc==$user['acc'] && $pw==$user['pw']){
   //   echo "登入成功";
@@ -25,10 +26,12 @@ if(!empty($_POST['acc'])){
   // }
 
   // 更正確方法三
-  if($user=1){
-    echo "登入成功";
+  if($user>0){
+    echo "登入成功";    //因為下方還有一行導向頁面指令，所以"登入成功"一瞬間就過去了，幾乎看不到。
+    header("location:list_user.php");
   }else{
-    echo "登入失敗";
+    echo "登入失敗";    //因為下方還有一行導向頁面指令，所以"登入失敗"一瞬間就過去了，幾乎看不到。
+    header("location:login_samepage.php?status=false");
   }
 }
 
@@ -45,7 +48,7 @@ if(!empty($_POST['acc'])){
     form{
       text-align: center;
       width: 200px;
-      height: 200px;
+      height: 150px;
       border: 1px solid black;
       display:flex;
       margin:100px auto;
@@ -57,9 +60,6 @@ if(!empty($_POST['acc'])){
     div{
       margin-bottom:16px;
     }
-    div.hint{
-      margin-top:16px;
-    }
   </style>
 </head>
 <body>
@@ -70,19 +70,6 @@ if(!empty($_POST['acc'])){
       <input type="submit" value="sign-in">
       <input type="submit" value="reset">
     </div>
-    
-    <?php
-    echo "<div class='hint'>";
-      if(isset($_GET['status'])){
-        
-        if($_GET['status']=='false'){
-          echo "帳號密碼錯誤";
-        }
-      
-      }
-    echo "</div>";
-    ?>
-  
   </form>
 </body>
 </html>

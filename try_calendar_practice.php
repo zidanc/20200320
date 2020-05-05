@@ -28,16 +28,32 @@
 
 <?php
 
+$firstDay="2020-05-01";
+$firstDayWeek=date("w",strtotime($firstDay));
+$monthDays=date("t",strtotime($firstDay));
+
+echo "第一天星期：".$firstDayWeek."<br>";
+echo "月天數：".$monthDays."天";
+
   for($i=0;$i<6;$i++){
     echo "<tr>";
     for($j=0;$j<7;$j++){
 
-      // echo "<td>".($i*7+$j+1)."</td>";    可以寫成一行，但這樣若中間公式很長，不好閱讀。
+      if($i==0 && $j<$firstDayWeek){
+        echo "<td>";
+        echo "</td>";
+      }else{
       
-      echo "<td>";
-      echo $i*7+$j+1;
-      echo "</td>";
-      
+        // echo "<td>".($i*7+$j+1)."</td>";    可以寫成一行，但這樣若中間公式很長，不好閱讀。
+        
+        echo "<td>";
+        $num= $i*7+$j+1-$firstDayWeek;
+            if($num<=$monthDays){
+              echo $num;
+            }
+        echo "</td>";
+        
+      }
     }
     echo "</td>";
   }

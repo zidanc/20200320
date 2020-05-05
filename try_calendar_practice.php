@@ -8,12 +8,26 @@
     border: 1px solid #ccc;
     padding: 10px;
   }
+  .wrapper{
+    display: flex;
+  }
 </style>
 
 <!-- table>(tr>td*7)*6 -->
 
 <h4>月曆練習</h4>
-<div>月份：4</div>
+<div>年份：2021</div>
+
+<div class="wrapper">
+
+<?php
+$year=2021;
+for ($m=1; $m <=12 ; $m++) { 
+?>
+
+<div class="calendar">
+
+<div>月份：<?=$m; ?></div>
 <table>       
                   <!-- <?php ?>會寫在<table>標籤之中的原因：因為觀察月曆表格過後，會重複的部份是<tr>、<td> 6~7組，會重複表示可以用迴圈，要用迴圈的部份才需要被php標籤包裹著。 -->
   <tr>
@@ -28,7 +42,7 @@
 
 <?php
 
-$firstDay="2020-05-01";
+$firstDay="$year-$m-01";
 $firstDayWeek=date("w",strtotime($firstDay));
 $monthDays=date("t",strtotime($firstDay));
 
@@ -62,3 +76,11 @@ echo "月天數：".$monthDays."天";
 ?>
 
 </table>
+
+<?php
+}
+?>
+
+</div>
+
+</div>

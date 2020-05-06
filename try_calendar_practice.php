@@ -8,8 +8,18 @@
     border: 1px solid #ccc;
     padding: 10px;
   }
-  .wrapper{
+  .wrapper{               /*控制跑1~12迴圈出來的12個月曆。*/
     display: flex;
+    flex-flow:row wrap;
+    /* align-items: center; */
+  }
+  .calendar{              /*每一個【各自】月曆內「月份」、「第一天星期：」、「月天數：」、月曆表格本身這四個物件的排列。*/
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+  table td{
+    padding: 15px;
   }
 </style>
 
@@ -77,10 +87,10 @@ echo "月天數：".$monthDays."天";
 
 </table>
 
+</div>
+
 <?php
 }
 ?>
-
-</div>
 
 </div>

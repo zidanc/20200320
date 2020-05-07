@@ -6,28 +6,37 @@
 
 <?php
 
-if (isset($_GET["height"]) && isset($_GET["weight"]) && $_GET["weight"]>0){
+if (isset($_GET["height"]) && isset($_GET["weight"]) && $_GET["weight"]>0 && $_GET["height"]>0 ){
   
   $height=$_GET["height"];
   $weight=$_GET["weight"];
+  $level=round($weight/($height*$height)*10000,2);
   echo "你輸入的的身高是".$height."公分<br>";
   echo "你輸入的的體重是".$weight."公斤<br>";
   
   
-  if ($height>0) {
-    $BMI=$weight/($height*$height)*10000;
-    echo "BMI=". round($BMI,2);
+  if (!empty($height)) {
+    echo "BMI=". $level." ";
+  }
+  
+  if ($level<18.5){
+    echo "體重過輕";
+  }else if($level<24){
+    echo "你很健康";
+  }else if($level<27){
+    echo "過重";
+  }else if($level<30){
+    echo "輕度肥胖";
+  }else if($level<35){
+    echo "中度肥胖";
   }else{
-    echo "<span>請輸入正確的身高，才能得知您的BMI值。</span>";
+    echo "重度肥胖";
   }
 
 }else{
   
-  $height=$_GET["height"];
-  $weight=$_GET["weight"];
-  echo "你輸入的的身高是".$height."公分<br>";
-  echo "你輸入的的體重是".$weight."公斤<br>";
-  echo "<span>請輸入正確的體重，才能得知您的BMI值。</span>";
+  echo "<span>請輸入正確的身高、體重，才能得知您的BMI值。</span>";
+
 }
 
 

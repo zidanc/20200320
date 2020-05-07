@@ -4,9 +4,22 @@
     font-weight: bolder;
     font-size: 1.5rem;
   }
+  a{
+    text-decoration: none;
+    border: 1px solid #0ff;
+    border-radius: 20px;
+    padding: 8px;
+    background: linear-gradient(to bottom right, white, #0ff);
+  }
+  div{
+    margin-bottom: 20px;
+  }
 </style>
 
+
 <?php
+echo "<div>";
+
 //學生成績
 $score=[
   "50"=>[
@@ -54,4 +67,8 @@ if (isset($_GET["num"])) {
   echo "<span>請提供學生座號</span>";
 }
 
+
+echo "</div>";
 ?>
+
+<a href="student2.html">回學生座號列表</a>

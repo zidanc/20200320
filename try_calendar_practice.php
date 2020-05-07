@@ -46,15 +46,27 @@
 </style>
 
 <!-- table>(tr>td*7)*6 -->
-<div class="title">
-  <div>月曆練習</div>
-  <div>年份：2021</div>
-</div>
 
-<div class="wrapper">
 
 <?php
-$year=2021;
+if (isset($_GET["year"])) {
+  $year=$_GET["year"];
+}else{
+  $year=date("Y");
+}
+echo '<div class="title">
+        <div>月曆練習</div>
+        <div>
+          <form action="?">
+            年份：<input type="number" name="year" id="">
+            <input type="submit" value="產生年曆">
+          </form>
+        </div>';
+  echo "<div>"."西元". $year ."年"."</div>";
+echo "</div>";
+
+echo "<div class='wrapper'>";
+
 for ($m=1; $m <=12 ; $m++) { 
 ?>
 

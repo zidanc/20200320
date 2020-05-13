@@ -26,9 +26,9 @@
 
 
   <?php
-  if ($showLoginForm) {       //此判斷式沒有寫成常見的$showLoginForm==1 or 0，是因為前面此變數已經帶有布林值的狀態才到這行了，所以可以省略不寫==1 or 0。
+  if ($showLoginForm) {       //此判斷式沒有寫成常見的if($showLoginForm==1)or if($showLoginForm==0)，是因為前面此變數已經帶有布林值的狀態才到這行了，所以可以省略不寫==1 or ==0。
                               //$showLoginForm==1 時，才會顯示以下表單。另外，因為php程式碼是先從client端發出request到server，所以今天若Server接收到$showLoginForm=1，它回傳Response就會是只有true狀態下的程式碼。
-                              //$showLoginForm=0，Server就Response 布林值=0 (false)狀態的程式碼。
+                              //$showLoginForm=0，Server就Response布林值=0 (false)狀態的程式碼。
   ?>
 
   <form action="user_practice.php" method="post">

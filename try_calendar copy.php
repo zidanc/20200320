@@ -40,7 +40,26 @@
     color: white;
   }
 </style>
+<div>
+  <input type="number" name="" id="">
+  <input type="submit" value="產生年曆">
+</div>
 
+
+
+<!-- <div>年份:2020</div> -->
+
+<?php
+if(isset($_GET["year"])){
+  $year=$_GET["year"];
+}else{
+  $year=date("Y");
+}
+echo "<h4 style='text-align:center'>西元". $year . "年曆</h4>";
+
+echo "<div class='container'>";
+for($m=1;$m<=12;$m++){
+  ?>
 
 <div class="container">
   
@@ -58,6 +77,7 @@
   if(isset($_GET["year"])){
     $year=$_GET["year"];
   }
+
 
   if($month>12){
     $year++; /*只寫$year++即可*/
@@ -89,7 +109,24 @@
   </tr>
 
 <?php
+// $firstDay="2020-04-01";
+// $firstDayWeek=date("w",strtotime($firstDay));
+// echo "第一天星期:" . $firstDayWeek . "<br>";
 
+// // echo "<table>";
+// for($i=0;$i<=4;$i++){
+//   echo "<tr>";
+//   for($j=0;$j<=6;$j++){
+//     if($i==0 && $j<$firstDayWeek){
+//       echo "<td></td>";
+//     }else{
+//       echo "<td>", $i*7+$j+1-$firstDayWeek, "</td>";
+
+//     }
+//   }
+//   echo "</tr>";
+// }
+// echo "</table>";
 
 $firstDay="$year-$month-01";
 $firstDayWeek=date("w",strtotime($firstDay));
@@ -114,7 +151,7 @@ for($i=0;$i<=4;$i++){
   }
   echo "</tr>";
 }
-
+// echo "</table>";
 
 
 ?>

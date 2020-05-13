@@ -57,7 +57,7 @@ if(isset($_GET["year"])){
 }
 echo "<h4 style='text-align:center'>西元". $year . "年曆</h4>";
 
-<div class="container">
+echo "<div class='container'>";
 for($m=1;$m<=12;$m++){
   ?>
 =======
@@ -77,7 +77,7 @@ for($m=1;$m<=12;$m++){
   if(isset($_GET["year"])){
     $year=$_GET["year"];
   }
->>>>>>> 06b92c93d8c348443879bba99ade47c067274606
+
 
   if($month>12){
     $year++; /*只寫$year++即可*/

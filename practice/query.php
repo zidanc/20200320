@@ -9,7 +9,11 @@ $sql="select `name`,`tel` from `student`";
 $rows=$pdo->query($sql)->fetchAll();
 
 foreach ($rows as $r ) {
-  echo $r['name']."-".$r['tel']."<br>";
+  // echo $r['name']."-".$r['tel']."<br>";
+  echo "<pre>";print_r($r);"</pre>";
 }
+
+// echo "<pre>";print_r($rows);"</pre>";
+
 
 ?>

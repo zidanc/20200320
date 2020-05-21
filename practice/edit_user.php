@@ -56,8 +56,8 @@
   <form action="update_user.php" method="post" class="form">
     
     <!-- 新增一個type="hidden"的項目，是為了讓這個form傳值submit到update_user.php時，可以有一個唯一不重複的資料給該頁去取值、覆寫。
-    以免發生萬一輸入的帳號已經有在資料庫中，我們讓它覆蓋掉錯誤筆(隨便舉例：id=100的acc與正在輸入更新資料的id=8的acc相同，
-    但我們還讓它submit出去 -->
+    以免覆蓋掉錯誤筆(隨便舉例：正在輸入更新資料的id=8，submit出去覆寫的就是id=8那筆資料。
+    用其他欄目，如生日或姓名，有可能覆蓋到錯誤筆的資料 -->
     <input type="hidden" name="id" value="<?=$res['id'];?>">
     <div><label for="acc">帳號：</label><input type="text" name="acc" value="<?=$res['acc'];?>"></div>
     <div><label for="pw">密碼：</label><input type="password" name="pw" value="<?=$res['pw'];?>"></div>
@@ -68,6 +68,7 @@
 
     <div class="btn">
       <input type="submit" value="送出">
+      <!-- 包在<form action="位置">的submit等於a連結送出到特定位置。 -->
       <input type="reset" value="重置">
     </div>
 

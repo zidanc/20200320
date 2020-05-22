@@ -21,13 +21,46 @@
 <h1 class="header">檔案管理練習</h1>
 <!----建立上傳檔案表單及相關的檔案資訊存入資料表機制----->
 
-
+<form action="save_file.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="upload" id="img"><br>
+    <input type="text" name="note">
+    <hr>
+    <input type="submit" value="上傳">
+</form>
 
 
 
 <!----透過資料表來顯示檔案的資訊，並可對檔案執行更新或刪除的工作----->
+<table>
+    <tr>
+        <td>預覽</td>
+        <td>檔名</td>
+        <td>路徑</td>
+        <td>類別</td>
+        <td>說明</td>
+        <td>上傳時間</td>
+    </tr>
+</table>
 
+<?php
+    $all=all('file_info');
+    foreach ($all as $row ) {    
+?>
 
+<table>
+    <tr>
+        <td><img src="img/<?=$row['path'];?>" alt=""></td>
+        <td><?=$row['filename'];?></td>
+        <td><?=$row['path'];?></td>
+        <td><?=$row['type'];?></td>
+        <td><?=$row['note'];?></td>
+        <td><?=$row['update_time'];?></td>
+    </tr>
+</table>
+
+<?php
+}
+?>
 
 
 </body>

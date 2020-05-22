@@ -41,15 +41,16 @@ include_once "base.php";
         <td>類別</td>
         <td>說明</td>
         <td>上傳時間</td>
+        <td>操作</td>
     </tr>
-</table>
+
 
 <?php
     $all=all('file_info');
     foreach ($all as $row ) {    
 ?>
 
-<table>
+
     <tr>
         <td><img src="<?=$row['path'];?>" alt="" style="width:200px"></td>
         <td><?=$row['filename'];?></td>
@@ -57,12 +58,16 @@ include_once "base.php";
         <td><?=$row['type'];?></td>
         <td><?=$row['note'];?></td>
         <td><?=$row['upload_time'];?></td>
+        <td>
+            <a href="del_file.php?id=<?=$row['id'];?>"><button>刪除</button></a>
+            <a href="update_file.php?id=<?=$row['id'];?>"><button>更新</button></a>
+        </td>
     </tr>
-</table>
-
 <?php
 }
 ?>
+</table>
+
 
 
 </body>

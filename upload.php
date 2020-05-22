@@ -41,7 +41,7 @@
 <?php
 }
 ?>
-
+<a href="manage.php"><button>前往檔案管理頁面</button></a>
 
 </body>
 </html>

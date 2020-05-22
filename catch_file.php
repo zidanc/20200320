@@ -32,6 +32,9 @@ if ($_FILES['upload']['error']==0) {
 }
 // move_uploaded_file(上傳位址, 上傳目的地位置)
 // 上傳位址_此為從二維陣列中的暫存位置tmp_name得知暫存位址
+
+header("location:upload.php?filename=$name");
+
 ?>
 
-<img src="img/<?=$_FILES['upload']['name'];?>" alt="">
+

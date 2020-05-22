@@ -34,4 +34,4 @@ if ($_FILES['upload']['error']==0) {
 // 上傳位址_此為從二維陣列中的暫存位置tmp_name得知暫存位址
 ?>
 
-<img src="img/<?=$name;?>" alt="">
+<img src="img/<?=$_FILES['upload']['name'];?>" alt="">

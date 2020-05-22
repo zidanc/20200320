@@ -1,3 +1,4 @@
+
 <?php
 /**
  * 1.建立資料庫及資料表來儲存檔案資訊
@@ -5,6 +6,7 @@
  * 3.取得檔案資訊並寫入資料表
  * 4.製作檔案管理功能頁面
  */
+include_once "base.php";
 
 
 ?>
@@ -49,12 +51,12 @@
 
 <table>
     <tr>
-        <td><img src="img/<?=$row['path'];?>" alt=""></td>
+        <td><img src="<?=$row['path'];?>" alt="" style="width:200px"></td>
         <td><?=$row['filename'];?></td>
         <td><?=$row['path'];?></td>
         <td><?=$row['type'];?></td>
         <td><?=$row['note'];?></td>
-        <td><?=$row['update_time'];?></td>
+        <td><?=$row['upload_time'];?></td>
     </tr>
 </table>
 

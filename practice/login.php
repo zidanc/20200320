@@ -4,16 +4,40 @@ $pdo=new PDO($dsn,"root","");
 date_default_timezone_set("Asia/Taipei");
 
 if (!empty($_POST['acc'])) {
-  echo "帳號不是空值。";
+  echo "帳號不是空值。<br>";
   $acc=$_POST['acc'];
   $pw=$_POST['pw'];
   
-  $sql="select * from `student` where `acc`='$acc' && `pw`='$pw'";
-  $r=$pdo->query($sql)->fetch();
+  // $sql="select * from `student` where `acc`='$acc' && `pw`='$pw'";  佔儲存空間，若真的很多筆將會影響網路速度
+  // $sql="select `student`.`acc`,`student`.`pw` from `student` where `acc`='$acc' && `pw`='$pw'";
+  // 用count(*)好處是，帳密資料比對相同應該只有唯一一筆，此時count結果為1，若沒有就是0。
+  $sql="select count(*) from `student` where `acc`='$acc' && `pw`='$pw'";
+  $r=$pdo->query($sql)->fetchColumn();
   
-  echo "<pre>";print_r($r);"</pre>";
+  // echo "<pre>";print_r($r);"</pre>";
 
-}
+  // 21~25行是多餘的帳密確認，因為第11行已經透過sql語法去查詢了，查詢若POST進來的帳密與資料庫的相同時，才會將資料存成$r。若查詢POST進來的帳密和資料庫沒有任一筆符合的話，$r就會是空陣列。
+
+  // if ($acc==$r['acc'] && $pw==$r['pw']) {  
+  //   echo "登入成功！";
+  // }else{
+  //   echo "登入失敗！";
+  // }
+
+  // 另外一個21行的壞處是，將帳密從陣列中撈出來，在資安上比較有危險。且程式會出現警告Trying to access array offset on value of type bool 
+
+  // if (!empty($r)) {
+  //     echo "且，登入成功！";
+  //   }else{
+  //     echo "但，資料有誤，請重新輸入帳號密碼！";
+  //   }
+  // }
+  if ($r==1) {
+      echo "且，登入成功！";
+    }else{
+      echo "但，資料有誤，請重新輸入帳號密碼！";
+    }
+  }
 
 
 

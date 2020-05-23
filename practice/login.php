@@ -1,4 +1,19 @@
 <?php
+$dsn="mysql:host:localhost;charset=utf8;dbname=school";
+$pdo=new PDO($dsn,"root","");
+date_default_timezone_set("Asia/Taipei");
+
+if (!empty($_POST['acc'])) {
+  echo "帳號不是空值。";
+  $acc=$_POST['acc'];
+  $pw=$_POST['pw'];
+  
+  $sql="select * from `student` where `acc`='$acc' && `pw`='$pw'";
+  $r=$pdo->query($sql)->fetch();
+  
+  echo "<pre>";print_r($r);"</pre>";
+
+}
 
 
 
@@ -12,11 +27,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>登入</title>
   <style>
-    body {
+    /* body {
       font-family: Arial, "Microsoft JhengHei", Helvetica, sans-serif;
       font-size: 1.2rem;
       line-height: 2rem;
-    }
+    } */
 
     table {
       border: 1px solid #AAA;
@@ -51,7 +66,7 @@
 
     h1 {
       margin-left: 10vw;
-      margin-top: 8vh;
+      /* margin-top: 8vh; */
     }
 
     .td1 {

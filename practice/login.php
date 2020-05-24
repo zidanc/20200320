@@ -42,6 +42,7 @@ if (!empty($_POST['acc'])) {
 
 
 */
+
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +115,24 @@ if (!empty($_POST['acc'])) {
     <table>
       <tr>
         <td class="td1"><i class="material-icons md-48">face</i></td>
-        <td><input type="text" name="acc"></td>
+        <td><input type="text" name="acc">
+              <?php
+                // if(isset($_GET['status']) && $_GET['status']=="false"){
+                //   echo "<div style='font-size:0.8rem; color:red;'>資料有誤，請重新輸入帳號、密碼！</div>";
+                // }
+                if (isset($_GET['status'])) {
+                  switch ($_GET['status']) {
+                    case 'true':
+                      header("location:list_user.php?id=".$_GET['id']);
+                      break;
+                      
+                    case 'false':  
+                      echo "<div style='font-size:0.8rem; color:red;'>資料有誤，請重新輸入帳號、密碼！</div>";
+                      break;
+                  }
+                }
+              ?>
+        </td>
       </tr>
       <tr>
         <td class="td1"><i class="fas fa-key"></i></td>

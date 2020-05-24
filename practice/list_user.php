@@ -1,3 +1,12 @@
+<?php
+
+if (!isset($_GET['id'])) {  
+  echo "非法登入，請回到<a href='login.php'>登入頁</a>重新登入！";
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +34,7 @@
     tr:nth-of-type(even){
       background: #0000FF20;
     }
-    h1{
+    h1,div{
       text-align: center;
     }
 
@@ -36,14 +45,19 @@
     button{
       border-radius: 5px;
     }
+    div{
+      margin-top: 1.5rem;
+    }
   </style>
 </head>
 <body>
   
 <?php
-$dsn="mysql:host=localhost;charset=utf8;dbname=school";
-$pdo=new PDO($dsn,"root","");
-date_default_timezone_set("Asia/Taipei");
+include "dbconnect.php";
+
+$sql="select * from `student` where `id`='".$_GET['id']."'";
+$user=$pdo->query($sql)->fetch();
+echo "<h1>歡迎".$user['name']."回來</h1>";
 
 $sql="select * from `student` order by `id` DESC";
 $rows=$pdo->query($sql)->fetchAll();
@@ -92,5 +106,12 @@ foreach ($rows as $r) {
 
 </table>
 
+
+<div>
+  <a href="login.php?status=true&id=<?=$_GET['id'];?>">回登入頁面</a>
+</div>
+
 </body>
 </html>
+<!-- 登入後多檔案之間的網頁傳值，非常複雜且考驗細心，
+所以後來衍生出較方便的Cookies & Sessions來解決此問題 -->

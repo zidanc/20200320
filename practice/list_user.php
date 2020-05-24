@@ -102,7 +102,7 @@ foreach ($rows as $r) {
 // ◎觀察結果：
 // ？後方的命名名稱，必須與超連結連過去對接的頁面，接收的陣列key值相同命名。而且只能用$_GET['']，用$_POST['']會被Notice: Undefined index: id。
 
-?>
+?>  
 
 </table>
 

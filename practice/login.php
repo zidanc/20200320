@@ -1,4 +1,5 @@
 <?php
+/*
 $dsn="mysql:host:localhost;charset=utf8;dbname=school";
 $pdo=new PDO($dsn,"root","");
 date_default_timezone_set("Asia/Taipei");
@@ -40,7 +41,7 @@ if (!empty($_POST['acc'])) {
   }
 
 
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +110,7 @@ if (!empty($_POST['acc'])) {
 
 <body>
   <h1>&nbsp;<i class="fas fa-sign-in-alt"></i>&nbsp; 歡迎回來</h1>
-  <form action="?" method="post">
+  <form action="chklogin.php" method="post">
     <table>
       <tr>
         <td class="td1"><i class="material-icons md-48">face</i></td>

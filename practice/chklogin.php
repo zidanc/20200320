@@ -9,7 +9,7 @@ if (!empty($_POST['acc'])) {
   $sql="select * from `student` where `acc`='$acc' && `pw`='$pw'";
   // $sql="select count(*) from `student` where `acc`='$acc' && `pw`='$pw'";
   $r=$pdo->query($sql)->fetchColumn();
-              
+  
               
   
  

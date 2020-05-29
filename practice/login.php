@@ -120,10 +120,10 @@ if (!empty($_POST['acc'])) {
                 // if(isset($_GET['status']) && $_GET['status']=="false"){
                 //   echo "<div style='font-size:0.8rem; color:red;'>資料有誤，請重新輸入帳號、密碼！</div>";
                 // }
-                if (isset($_GET['status'])) {
-                  switch ($_GET['status']) {
+                if (isset($_COOKIE['status'])) {
+                  switch ($_COOKIE['status']) {
                     case 'true':
-                      header("location:list_user.php?id=".$_GET['id']);
+                      header("location:list_user.php?id=".$_COOKIE['id']);
                       break;
                       
                     case 'false':  

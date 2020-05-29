@@ -19,7 +19,7 @@ if (!empty($_POST['acc'])) {
       header("location:list_user.php");  
     }else{
       echo "但，資料有誤，請重新輸入帳號密碼！";
-      setcookie("status","fail",10);
+      setcookie("status","false",time()+10);
       header("location:login.php");  
     }
   }

@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_GET['id'])) {  
+if (!isset($_COOKIE['id'])) {  
   echo "非法登入，請回到<a href='login.php'>登入頁</a>重新登入！";
   exit();
 }

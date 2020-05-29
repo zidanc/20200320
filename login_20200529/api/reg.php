@@ -67,7 +67,7 @@
 </head>
 
 <body>
-<form action="api/reg.php" method="post" id="acc">
+<form action="api/reg.php" method="post">
   <ul class="list-group col-md-4 mx-auto mt-5">
     <li class="list-group-item">帳號：<input type="text" name="acc" id="pw"></li>
     <li class="list-group-item">密碼：<input type="password" name="pw" id="pw"></li>

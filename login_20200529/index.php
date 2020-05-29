@@ -69,11 +69,15 @@
 <body>
 
 <h1 class="text-center">登入泰山職訓場</h1>
-<form action="api/login.php" method="post" id="acc">
+<form action="api/login.php" method="post">
   <ul class="list-group col-md-4 mx-auto mt-5">
     <li class="list-group-item">帳號：<input type="text" name="acc" id="pw"></li>
     <li class="list-group-item">密碼：<input type="password" name="pw" id="pw"></li>
-    <li class="list-group-item"><input type="submit" value="確認" class="btn btn-primary"></li>
+    <li class="list-group-item">
+      <input type="submit" value="確認" class="btn btn-primary">
+      <input type="submit" value="註冊" class="btn btn-success" onclick="location.href='reg.php'">
+    </li>
+    <!-- onclick="location.href='reg.php'是javascript的header語法。 -->
   </ul>
 </form>
 

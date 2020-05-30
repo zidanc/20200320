@@ -108,7 +108,7 @@ foreach ($rows as $r) {
 
 
 <div>
-  <a href="login.php?status=true&id=<?=$_GET['id'];?>">回登入頁面</a>
+  <a href="login.php">回登入頁面</a>
 </div>
 
 </body>

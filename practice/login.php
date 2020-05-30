@@ -112,6 +112,11 @@ if (!empty($_POST['acc'])) {
 <body>
   <h1>&nbsp;<i class="fas fa-sign-in-alt"></i>&nbsp; 歡迎回來</h1>
   <form action="chklogin.php" method="post">
+    
+    <?php
+      $showLogin=true;
+    ?>
+    
     <table>
       <tr>
         <td class="td1"><i class="material-icons md-48">face</i></td>
@@ -120,10 +125,12 @@ if (!empty($_POST['acc'])) {
                 // if(isset($_GET['status']) && $_GET['status']=="false"){
                 //   echo "<div style='font-size:0.8rem; color:red;'>資料有誤，請重新輸入帳號、密碼！</div>";
                 // }
+                // $showLogin=true;這一句講師是寫在表格內這個位置。
                 if (isset($_COOKIE['status'])) {
                   switch ($_COOKIE['status']) {
                     case 'true':
-                      header("location:list_user.php?id=".$_COOKIE['id']);
+                      $showLogin=false;
+                      // header("location:list_user.php");
                       break;
                       
                     case 'false':  
@@ -134,6 +141,11 @@ if (!empty($_POST['acc'])) {
               ?>
         </td>
       </tr>
+    
+    <?php
+      if ($showLogin==true) {
+    ?>
+
       <tr>
         <td class="td1"><i class="fas fa-key"></i></td>
         <td><input type="password" name="pw"></td>
@@ -144,6 +156,15 @@ if (!empty($_POST['acc'])) {
           <button type="reset" value="重置">重置</button>
         </td>
       </tr>
+    
+    <?php
+      }else{
+        echo "<tr>";
+        echo "<td colspan='2'>"."id=".$_COOKIE['id']."你已登入，若仍需要請至"."<a href='list_user.php'>會員清單網頁</a>"."查看。"."</td>";
+        echo "</tr>";
+      }
+    ?>
+
     </table>
   </form>
 

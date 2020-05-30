@@ -15,7 +15,7 @@ if (!empty($_POST['acc'])) {
  
   if (!empty($r)) {
       echo "且，登入成功！";
-      setcookie("id",$r,60*3);
+      setcookie("id",$r,time()+60*3);
       header("location:list_user.php");  
     }else{
       echo "但，資料有誤，請重新輸入帳號密碼！";

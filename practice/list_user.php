@@ -55,7 +55,7 @@ if (!isset($_COOKIE['id'])) {
 <?php
 include "dbconnect.php";
 
-$sql="select * from `student` where `id`='".$_GET['id']."'";
+$sql="select * from `student` where `id`='".$_COOKIE['id']."'";
 $user=$pdo->query($sql)->fetch();
 echo "<h1>歡迎".$user['name']."回來</h1>";
 

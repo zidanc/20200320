@@ -45,6 +45,16 @@ if (!empty($_POST['acc'])) {
 
 ?>
 
+<!-- 1.同一檔案/網頁logout： -->
+<?php
+// if (isset($_GET['logout'])) {
+//   setcookie("id",$_COOKIE['id'],time()-1);
+//   setcookie("status","true",time()-1);
+//   header("location:login.php");
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,8 +172,15 @@ if (!empty($_POST['acc'])) {
         echo "<tr>";
         echo "<td colspan='2'>"."id=".$_COOKIE['id']."你已登入，若仍需要請至"."<a href='list_user.php'>會員清單網頁</a>"."查看。"."</td>";
         echo "</tr>";
+        
+        echo "<tr>";
+        // 1.同一檔案/網頁logout：
+        // echo "<td colspan='2'><a href='login.php?logout=1'>登出</a></td>";
+        // 2.由另一個檔案/網頁logout：
+        echo "<td colspan='2'><a href='logout.php'>登出</a></td>";
+        echo "</tr>";
       }
-    ?>
+      ?>
 
     </table>
   </form>

@@ -1,41 +1,52 @@
 <style>
-  table{
-    width:250px; 
+  table {
+    width: 250px;
     border-collapse: collapse;
     text-align: center;
   }
-  table td{
+
+  table td {
     border: 1px solid #ccc;
     padding: 15px;
   }
-  table tr{
-    height:50px;
+
+  table tr {
+    height: 50px;
   }
-  .wrapper{               /*控制跑1~12迴圈出來的12個月曆。*/
+
+  .wrapper {
+    /*控制跑1~12迴圈出來的12個月曆。*/
     display: flex;
-    flex-flow:row wrap;
+    flex-flow: row wrap;
     /* align-items: center; */
   }
-  .calendar{              /*每一個【各自】月曆內「月份」、「第一天星期：」、「月天數：」、月曆表格本身這四個物件的排列。*/
+
+  .calendar {
+    /*每一個【各自】月曆內「月份」、「第一天星期：」、「月天數：」、月曆表格本身這四個物件的排列。*/
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     margin: 20px 40px;
   }
-  tr>td:first-child{
+
+  tr>td:first-child {
     color: red;
   }
-  tr>td:last-child{
+
+  tr>td:last-child {
     color: darkgreen;
   }
-  table tr:nth-of-type(1){
+
+  table tr:nth-of-type(1) {
     background: pink;
   }
-  td:hover{
+
+  td:hover {
     background: lightskyblue;
   }
-  div.title{
-    display:flex;
+
+  div.title {
+    display: flex;
     flex-flow: column wrap;
     /* justify-content: center;
     align-items: center; */
@@ -72,24 +83,24 @@ for ($m=1; $m <=12 ; $m++) {
 
 <div class="calendar">
 
-<table>       
-  <tr>
-    <td class="month" colspan="7">月份：<?=$m; ?></td>
-  </tr>
-              <!-- <?php ?>會寫在<table>標籤之中的原因：因為觀察月曆表格過後，會重複的部份是<tr>、<td> 6~7組，會重複表示可以用迴圈，要用迴圈的部份才需要被php標籤包裹著。 -->
-  
-  
-  <tr>
-    <td>日</td>
-    <td>一</td>
-    <td>二</td>
-    <td>三</td>
-    <td>四</td>
-    <td>五</td>
-    <td>六</td>
-  </tr>
+  <table>
+    <tr>
+      <td class="month" colspan="7">月份：<?=$m; ?></td>
+    </tr>
+    <!-- <?php ?>會寫在<table>標籤之中的原因：因為觀察月曆表格過後，會重複的部份是<tr>、<td> 6~7組，會重複表示可以用迴圈，要用迴圈的部份才需要被php標籤包裹著。 -->
 
-<?php
+
+    <tr>
+      <td>日</td>
+      <td>一</td>
+      <td>二</td>
+      <td>三</td>
+      <td>四</td>
+      <td>五</td>
+      <td>六</td>
+    </tr>
+
+    <?php
 
 $firstDay="$year-$m-01";
 $firstDayWeek=date("w",strtotime($firstDay));
@@ -118,13 +129,13 @@ $monthDays=date("t",strtotime($firstDay));
         
       }
     }
-    echo "</td>";
+    echo "</tr>";
   }
 
 
 ?>
 
-</table>
+  </table>
 
 </div>
 

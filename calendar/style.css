@@ -24,6 +24,20 @@
     border: 1px solid #888;
     padding: 15px;
     width: 8vw;
+    position: relative;
+  }
+
+  .number{
+    position: absolute;
+    left: 1vw;
+    top: -0.6vh;
+  }
+
+  .grid{
+    position: absolute;
+    left: 1vw;
+    bottom: -0.2vh;
+    font-size: 0.8rem;
   }
 
   tr:nth-child(1) {

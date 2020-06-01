@@ -1,6 +1,7 @@
 <?php
 
-if (!isset($_COOKIE['id'])) {  
+session_start();
+if (!isset($_SESSION['id'])) {  
   echo "非法登入，請回到<a href='login.php'>登入頁</a>重新登入！";
   exit();
 }
@@ -55,7 +56,7 @@ if (!isset($_COOKIE['id'])) {
 <?php
 include "dbconnect.php";
 
-$sql="select * from `student` where `id`='".$_COOKIE['id']."'";
+$sql="select * from `student` where `id`='".$_SESSION['id']."'";
 $user=$pdo->query($sql)->fetch();
 echo "<h1>歡迎".$user['name']."回來</h1>";
 

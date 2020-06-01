@@ -136,8 +136,9 @@ if (!empty($_POST['acc'])) {
                 //   echo "<div style='font-size:0.8rem; color:red;'>資料有誤，請重新輸入帳號、密碼！</div>";
                 // }
                 // $showLogin=true;這一句講師是寫在表格內這個位置。
-                if (isset($_COOKIE['status'])) {
-                  switch ($_COOKIE['status']) {
+                session_start();
+                if (isset($_SESSION['status'])) {
+                  switch ($_SESSION['status']) {
                     case 'true':
                       $showLogin=false;
                       // header("location:list_user.php");
@@ -170,7 +171,7 @@ if (!empty($_POST['acc'])) {
     <?php
       }else{
         echo "<tr>";
-        echo "<td colspan='2'>"."id=".$_COOKIE['id']."你已登入，若仍需要請至"."<a href='list_user.php'>會員清單網頁</a>"."查看。"."</td>";
+        echo "<td colspan='2'>"."id=".$_SESSION['id']."你已登入，若仍需要請至"."<a href='list_user.php'>會員清單網頁</a>"."查看。"."</td>";
         echo "</tr>";
         
         echo "<tr>";

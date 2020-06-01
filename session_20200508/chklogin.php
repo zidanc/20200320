@@ -15,12 +15,20 @@ if (!empty($_POST['acc'])) {
  
   if (!empty($r)) {
       // echo "且，登入成功！";
-      setcookie("id",$r,time()+60*3);
-      setcookie("status","true",time()+60*3);
+      // setcookie("id",$r,time()+60*3);
+      // setcookie("status","true",time()+60*3);
+      session_start();
+      $_SESSION['id']=$r;
+      $_SESSION['status']="true";
+      // echo $_SESSION['id'];
+      // echo $_SESSION['status'];
       header("location:list_user.php");  
     }else{
       // echo "但，資料有誤，請重新輸入帳號密碼！";
-      setcookie("status","false",time()+10);
+      // setcookie("status","false",time()+10);
+      session_start();
+      $_SESSION['status']="false";
+      // echo $_SESSION['status'];
       header("location:login.php");  
     }
   }

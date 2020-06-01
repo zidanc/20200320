@@ -81,15 +81,13 @@ for($i=0;$i<=5;$i++){
     if($i==0 && $j<$firstDayWeek){
       echo "<td></td>";
     }else{
-      echo "<td>";
+      echo "<td class=ab>";
         $num=$i*7+$j+1-$firstDayWeek;
         if($num<=$monthDays){
           echo $num;
           include_once "holiday.php";
           if (!empty($holiday[$month][$num])) {
-            print_r($holiday[$month][$num]);
-          }else{
-            
+            echo $holiday[$month][$num];
           }
         }
       echo "</td>";

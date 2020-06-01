@@ -3,12 +3,12 @@
 3.月份選單。
 4.日期排列在<td></td>左上角。
 5.國曆節日陣列與帶入(O)
-  國曆節日名稱在每一格<td></td>最下排。
+  國曆節日名稱在每一格<td></td>最下排。(可用block屬性的div or p來試試看)
   每一年各自母親節、感恩節的判斷。
 6-1.美化方向:海龜與鯊魚的海中世界。
 6-2.if (1,2,3,4月){
-    background:AA image;
+    background:url(AA image);
     }else if(5,6,7,8月){
-    background:BB image;
+    background:url(BB image);
     }
     或用switch case來切換圖片。
